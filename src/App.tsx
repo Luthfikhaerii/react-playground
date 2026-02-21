@@ -1,13 +1,21 @@
-import { Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './routes'
+import { AuthProvider } from './context/AuthContext'
 
 function App() {
+  // return (
+  //   <Routes>
+  //     <Route path="/" element={<Home />} />
+  //     <Route element={<ProtectedRoute data={{ role: "admin" }}/>}>
+  //       <Route path="/about" element={<About />} />
+  //     </Route>
+  //     <Route path="/contact" element={<ProtectedRouteSingle><Contact /></ProtectedRouteSingle>}/>
+  //   </Routes>
+  // )
   return (
-   <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-   </Routes>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   )
 }
 
