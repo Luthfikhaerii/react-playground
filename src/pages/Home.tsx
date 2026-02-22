@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { ENV } from "../config/env"
 import CardProduct from "../components/features/order/CardProduct";
 import useAuth from "../hooks/useAuth";
@@ -45,7 +45,14 @@ export default function Home() {
     return product.filter(v => v.id >= 3)
   }, [product])
 
+  //useRef = mengakses DOM
+  const inputRef = useRef<HTMLInputElement>(null)
+  const emailRef = useRef<HTMLInputElement>(null)
+
+  //useEffect
   useEffect(() => {
+    // inputRef.current?.focus()
+
     console.log("Home page loaded")
   }, [])
 
@@ -54,9 +61,13 @@ export default function Home() {
 
       <div className="min-h-screen">
         <h1 className="bg-yellow-600">Home Page</h1>
+
+        {/* ENV */}
         <p>API URL : {ENV.API_URL}</p>
         <button onClick={handleClick} className="bg-green-500 text-white px-4 py-2 rounded">Update Data</button>
         <p>DATA STATE : {data}</p>
+
+        {/* UseCallback */}
         <div className="grid grid-cols-3 gap-4 mt-4">
           {product.map(p => (
             <CardProduct key={p.id} product={p} handleUpdate={handleUpdateProduct} />
@@ -70,20 +81,25 @@ export default function Home() {
           }
         </div>
 
-        {/* Auth Context & Reducer Implementation */}
-        <div>
+        {/* Auth Context & Reducer */}
+        <div className="my-10">
           <div>
             <p>{state.user?.name}</p>
             <p>{state.user?.email}</p>
           </div>
-          <form onSubmit={() => login(formData?.name, formData?.email)}>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            login(formData?.name, formData?.email)
+            console.log(emailRef.current?.value)
+          }}>
             <p>Name :</p>
-            <input type="text" name="name" onChange={(e)=>setFormData(a=>({...a,name:e.target.value}))}/>
+            <input ref={inputRef} type="text" name="name" className="border" onChange={(e) => setFormData(a => ({ ...a, name: e.target.value }))} />
             <p>Email :</p>
-            <input type="text" name="email" onChange={(e)=>setFormData(a=>({...a,email:e.target.value}))}/>
-            <button on></button>
+            <input ref={emailRef} type="text" name="email" className="border" onChange={(e) => setFormData(a => ({ ...a, email: e.target.value }))} />
+            <button type="submit">submit</button>
           </form>
         </div>
+
       </div>
 
     </>
