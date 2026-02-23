@@ -17,3 +17,19 @@ export async function createProduct(payload: any) {
     })
     return res.json()
 }
+
+export async function updateProduct(id:number,payload:any){
+    const res = await fetch(BASE_URL+`/${id}`,{
+        method:"PUT",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({id,payload})
+    })
+    return res.json()
+}
+
+export async function deleteProduct(id:number){
+    const res = await fetch(BASE_URL+`/${id}`,{
+        method:"DELETE"
+    })
+    return res.json()
+}
