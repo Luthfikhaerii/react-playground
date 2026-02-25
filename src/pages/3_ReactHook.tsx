@@ -51,7 +51,7 @@ export default function ReactHook() {
         <>
             <p>React Hook</p>
 
-
+            <p>Increment: {increment}</p>
             <button onClick={handleClick} className="bg-green-500 text-white px-4 py-2 rounded">Update Data</button>
 
             {/* useCallback */}

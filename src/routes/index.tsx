@@ -1,13 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/1_Home";
-import ContextReducer from "../pages/3_ContextReducer";
-import ReactHook from "../pages/2_ReactHook";
-import ReactQuery from "../pages/5_ReactQuery";
-import Zustand from "../pages/4_Zustand";
-import Zod from "../pages/6_Zod";
-import ReactHookForm from "../pages/7_ReactHookForm";
-import CustomHook from "../pages/8_CustomHook";
+import ContextReducer from "../pages/5_ContextReducer";
+import ReactHook from "../pages/3_ReactHook";
+import ReactQuery from "../pages/6_ReactQuery";
+import Zustand from "../pages/7_Zustand";
+import Zod from "../pages/8_Zod";
+import ReactHookForm from "../pages/9_ReactHookForm";
+import CustomHook from "../pages/4_CustomHook";
 
 export const router = createBrowserRouter([
     {
