@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from "react"
+import { useEffect, useCallback, useMemo, useRef, useState } from "react"
 import CardProduct from "../components/features/order/CardProduct";
 
 interface Product {
@@ -41,9 +41,18 @@ export default function ReactHook() {
     const nameRef = useRef<HTMLInputElement>(null)
     const emailRef = useRef<HTMLInputElement>(null)
 
+    //useEffect
+    useEffect(() => {
+        nameRef.current?.focus()
+        console.log("Home page loaded")
+    }, [])
+
     return (
         <>
             <p>React Hook</p>
+
+
+            <button onClick={handleClick} className="bg-green-500 text-white px-4 py-2 rounded">Update Data</button>
 
             {/* useCallback */}
             <div className="grid grid-cols-3 gap-4 mt-4">

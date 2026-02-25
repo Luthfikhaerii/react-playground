@@ -1,8 +1,8 @@
 import { useContext } from "react"
-import { AuthContext } from "../context/AuthContext"
+import { AuthContext } from "../../context/AuthContext"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
-import { getAuth, loginAuth } from "../api/auth.api"
-import { useAuthStore } from "../stores/auth.store"
+import { getAuth, loginAuth, logoutAuth } from "../../api/auth.api"
+import { useAuthStore } from "../../stores/auth.store"
 
 const AUTH_QUERY_KEY = ["auth"]
 
@@ -41,10 +41,10 @@ export function useLogoutMutation(options: { onSuccess: () => void, onError: () 
     const logout = useAuthStore((s)=>s.logout)
 
     return useMutation({
-        mutationFn: loginAuth,
+        mutationFn: logoutAuth,
         onSuccess: () => {
-            logout()
             options?.onSuccess?.()
+            logout()
         },
         onError: () => {
             options?.onError?.()

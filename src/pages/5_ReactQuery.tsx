@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useAuth2, useLoginMutation } from "../hooks/useAuth"
+import { useAuth2, useLoginMutation } from "../features/hooks/queries/useAuth"
 
 interface FormData {
     name: string,

@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { createProduct, deleteProduct, getProducts, updateProduct } from "../api/product.api";
+import { createProduct, deleteProduct, getProducts, updateProduct } from "../../api/product.api";
 
 const PRODUCT_QUERY_KEY = ["product"]
 

@@ -1,20 +1,19 @@
 import { useState } from "react";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../features/hooks/queries/useAuth";
 
 interface FormData {
   name: string,
   email: string
 }
 
+{/* Context & Reducer */}
 export default function ContextReducer() {
     const [formData, setFormData] = useState<FormData>({ name: '', email: '' })
-    const { state, login, logout } = useAuth()
+    const { state, login } = useAuth()
 
     return (
         <>
             <p>Context Reducer</p>
-            
-            {/* Auth Context & Reducer */}
             <div className="my-10">
                 <div>
                     <p>{state.user?.name}</p>
