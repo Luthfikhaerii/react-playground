@@ -8,6 +8,8 @@ import Zustand from "../pages/7_Zustand";
 import Zod from "../pages/8_Zod";
 import ReactHookForm from "../pages/9_ReactHookForm";
 import CustomHook from "../pages/4_CustomHook";
+import FramerMotion from "../pages/11_FramerMotion";
+import Tailwind from "../pages/10_Tailwind";
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +47,14 @@ export const router = createBrowserRouter([
             {
                 path: "/custom-hook",
                 element: <CustomHook/>
+            },
+            {
+                path: "/framer-motion",
+                element: <FramerMotion />
+            },
+            {
+                path: "/tailwind",
+                element: <Tailwind />
             },
             {
                 path: "*",

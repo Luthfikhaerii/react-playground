@@ -14,6 +14,7 @@ export default function ContextReducer() {
     return (
         <>
             <p>Context Reducer</p>
+            
             <div className="my-10">
                 <div>
                     <p>{state.user?.name}</p>
