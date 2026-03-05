@@ -10,7 +10,11 @@ import ReactHookForm from "../pages/9_ReactHookForm";
 import CustomHook from "../pages/4_CustomHook";
 import FramerMotion from "../pages/11_FramerMotion";
 import Tailwind from "../pages/10_Tailwind";
+import Params from "../pages/12_Params";
+import Navigation from "../pages/13_Navigation";
 
+
+//Implmentasi lazy loading
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -55,6 +59,23 @@ export const router = createBrowserRouter([
             {
                 path: "/tailwind",
                 element: <Tailwind />
+            },
+            {
+                path: "/params/:id",
+                element: <Params />
+            },
+            {
+                path: "/navigation",
+                element: <Navigation />
+            },
+            {
+                path:"/performance",
+                lazy: async ()=>{
+                    const module = await import("../pages/15_Performance")
+                    return {
+                        Component : module.default
+                    }
+                }
             },
             {
                 path: "*",
