@@ -1,10 +1,10 @@
 import { ENV } from "../../config/env"
-import { http } from "../../lib/axios"
+import { api } from "../../lib/axios"
 
 const BASE_URL = `${ENV.API_URL}/posts`
 
 export async function getProducts() {
-    const res = await http.get(BASE_URL, {
+    const res = await api.get(BASE_URL, {
         params: {
             page: 1,
             limit: 10
@@ -14,20 +14,20 @@ export async function getProducts() {
 }
 
 export async function createProduct(payload: any) {
-    const res = await http.post(BASE_URL, {
+    const res = await api.post(BASE_URL, {
         body: payload
     })
     return res.data
 }
 
 export async function updateProduct(id: number, payload: any) {
-    const res = await http.put(BASE_URL + `/${id}`, {
+    const res = await api.put(BASE_URL + `/${id}`, {
         body: payload
     })
     return res.data
 }
 
 export async function deleteProduct(id: number) {
-    const res = await http.delete(BASE_URL + `/${id}`)
+    const res = await api.delete(BASE_URL + `/${id}`)
     return res.data
 }

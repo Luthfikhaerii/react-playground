@@ -12,7 +12,8 @@ import FramerMotion from "../pages/11_FramerMotion";
 import Tailwind from "../pages/10_Tailwind";
 import Params from "../pages/12_Params";
 import Navigation from "../pages/13_Navigation";
-
+import TestForm from "../pages/17_TestForm";
+// import TestForm from "../pages/"
 
 //Implmentasi lazy loading
 export const router = createBrowserRouter([
@@ -76,6 +77,10 @@ export const router = createBrowserRouter([
                         Component : module.default
                     }
                 }
+            },
+            {
+                path:"/testform",
+                element: <TestForm/>
             },
             {
                 path: "*",

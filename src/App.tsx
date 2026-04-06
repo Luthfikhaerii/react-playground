@@ -3,6 +3,7 @@ import { router } from './routes'
 import { AuthProvider } from './features/context/AuthContext'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClient } from './lib/react-query'
+import { UserProvider } from './context/UserContext'
 
 function App() {
   // return (
@@ -17,9 +18,11 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <UserProvider>
         <RouterProvider router={router} />
+        </UserProvider>
       </AuthProvider>
-    </QueryClientProvider>
+      </QueryClientProvider>
   )
 }
 
