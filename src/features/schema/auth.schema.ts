@@ -12,3 +12,4 @@ export const registerSchema = z.object({
 })
 
 export type registerSchemaType = z.infer<typeof registerSchema>
+export type LoginSchemaType = z.infer<typeof loginSchema>

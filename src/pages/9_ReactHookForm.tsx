@@ -1,9 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { loginSchema } from "../features/schema/auth.schema"
+import { loginSchema, type LoginSchemaType } from "../features/schema/auth.schema"
 
 export default function ReactHookForm() {
-    const { register, handleSubmit, formState: { errors, isLoading, isSubmitted } } = useForm<any>({
+    const { register, handleSubmit, formState: { errors, isLoading, isSubmitted } } = useForm<LoginSchemaType>({
         resolver: zodResolver(loginSchema),
         mode: "onSubmit"
     })
@@ -14,14 +14,6 @@ export default function ReactHookForm() {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                {errors.name && <p>{(errors.name as any)?.message}</p>}
-                <input
-                    type="text"
-                    placeholder="Name"
-                    {...register("name")}
-                />
-            </div>
             <div>
                 {errors.email && <p>{(errors.email as any)?.message}</p>}
                 <input
